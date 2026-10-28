@@ -1,389 +1,488 @@
-<!DOCTYPE html>  <html lang="hi">  
-<head>  
-  <meta charset="UTF-8" />  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
-  <title>Railway Services - Rajan Sahu</title>  
-  <style>  
-    :root {  
-      --primary: #0a192f;  
-      --accent: #ff7700;  
-      --accent-glow: rgba(255, 119, 0, 0.4);  
-      --card-bg: rgba(255, 255, 255, 0.12);  
-      --card-border: rgba(255, 255, 255, 0.22);  
-      --text-white: #ffffff;  
-      --text-muted: #cbd5e1;  
-    }  * {  
-  box-sizing: border-box;  
-  margin: 0;  
-  padding: 0;  
-  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;  
-}  
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#050b14" />
+  <title>Indian Railways Portal - Rajan Sahu</title>
+  <style>
+    :root {
+      --bg-dark: #050b14;
+      --card-bg: rgba(10, 18, 32, 0.82);
+      --card-border: rgba(255, 255, 255, 0.18);
+      --accent: #f97316;
+      --accent-glow: rgba(249, 115, 22, 0.45);
+      --text-main: #f8fafc;
+      --text-sub: #cbd5e1;
+      --green: #10b981;
+      --gold: #f59e0b;
+    }
 
-/* --- शानदार डायनामिक बैकग्राउंड --- */  
-body {  
-  min-height: 100vh;  
-  display: flex;  
-  justify-content: center;  
-  align-items: center;  
-  padding: 20px;  
-  background: radial-gradient(circle at 15% 20%, #1e3a8a 0%, #0b192c 45%, #050b14 100%);  
-  overflow-x: hidden;  
-  position: relative;  
-}  
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
 
-/* बैकग्राउंड फ्लोटिंग ग्लो इफ़ेक्ट */  
-body::before, body::after {  
-  content: '';  
-  position: absolute;  
-  border-radius: 50%;  
-  filter: blur(80px);  
-  z-index: 0;  
-  pointer-events: none;  
-  opacity: 0.6;  
-  animation: floatOrbs 10s ease-in-out infinite alternate;  
-}  
-body::before {  
-  width: 320px;  
-  height: 320px;  
-  background: #ff7700;  
-  top: 10%;  
-  left: 15%;  
-}  
-body::after {  
-  width: 380px;  
-  height: 380px;  
-  background: #0284c7;  
-  bottom: 10%;  
-  right: 15%;  
-  animation-delay: -5s;  
-}  
+    /* खूबसूरत बैकग्राउंड फ़ोटो + डार्क ओवरले */
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px 16px;
+      background: 
+        linear-gradient(135deg, rgba(5, 11, 20, 0.65) 0%, rgba(5, 11, 20, 0.85) 100%),
+        url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1920&q=80') center center / cover no-repeat fixed;
+      overflow-x: hidden;
+      position: relative;
+    }
 
-@keyframes floatOrbs {  
-  0% { transform: translateY(0px) scale(1); }  
-  100% { transform: translateY(40px) scale(1.15); }  
-}  
+    /* Ambient Glow Effects */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0.35;
+      animation: floatOrb 10s ease-in-out infinite alternate;
+    }
+    .orb-1 { width: 320px; height: 320px; background: #0284c7; top: 8%; left: 8%; }
+    .orb-2 { width: 280px; height: 280px; background: #ea580c; bottom: 8%; right: 8%; animation-delay: -5s; }
 
-/* --- मुख्य ऐप कार्ड (App Container) --- */  
-.container {  
-  position: relative;  
-  z-index: 1;  
-  background: var(--card-bg);  
-  backdrop-filter: blur(25px);  
-  -webkit-backdrop-filter: blur(25px);  
-  border: 1px solid var(--card-border);  
-  padding: 35px 25px;  
-  border-radius: 24px;  
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.3);  
-  max-width: 430px;  
-  width: 100%;  
-  text-align: center;  
-  transition: transform 0.3s ease;  
-}  
+    @keyframes floatOrb {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(25px, 25px) scale(1.08); }
+    }
 
-.badge {  
-  display: inline-block;  
-  padding: 5px 14px;  
-  background: rgba(255, 119, 0, 0.2);  
-  border: 1px solid rgba(255, 119, 0, 0.4);  
-  color: #ff9d42;  
-  border-radius: 20px;  
-  font-size: 0.78rem;  
-  font-weight: 700;  
-  letter-spacing: 1px;  
-  text-transform: uppercase;  
-  margin-bottom: 12px;  
-}  
+    /* Main Glass Card */
+    .app-card {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 430px;
+      background: var(--card-bg);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      border: 1px solid var(--card-border);
+      border-radius: 28px;
+      padding: 34px 22px 26px;
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      text-align: center;
+    }
 
-h1 {  
-  color: var(--text-white);  
-  font-size: 1.8rem;  
-  font-weight: 800;  
-  letter-spacing: -0.5px;  
-  margin-bottom: 6px;  
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);  
-}  
+    .badge-container {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(16, 185, 129, 0.16);
+      border: 1px solid rgba(16, 185, 129, 0.45);
+      padding: 5px 14px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background-color: var(--green);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--green);
+      animation: pulse 2s infinite;
+    }
+    .badge-text {
+      color: #6ee7b7;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
 
-p.subtitle {  
-  color: var(--text-muted);  
-  font-size: 0.9rem;  
-  margin-bottom: 28px;  
-}  
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.45; transform: scale(0.8); }
+    }
 
-/* बटन ग्रुप */  
-.btn-group {  
-  display: flex;  
-  flex-direction: column;  
-  gap: 14px;  
-}  
+    h1 {
+      color: var(--text-main);
+      font-size: 1.85rem;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      margin-bottom: 4px;
+    }
 
-/* बटन की प्रारंभिक स्थिति (पॉपअप हटने से पहले छुपे रहेंगे) */  
-.btn {  
-  display: flex;  
-  align-items: center;  
-  justify-content: space-between;  
-  padding: 16px 20px;  
-  font-size: 1.02rem;  
-  font-weight: 600;  
-  border-radius: 16px;  
-  background: rgba(255, 255, 255, 0.08);  
-  border: 1px solid rgba(255, 255, 255, 0.15);  
-  color: #ffffff;  
-  cursor: pointer;  
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);  
+    .subtitle {
+      color: var(--text-sub);
+      font-size: 0.88rem;
+      margin-bottom: 24px;
+    }
+
+    /* Services Buttons */
+    .services-group {
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+    }
+
+    .service-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 18px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 18px;
+      text-decoration: none;
+      color: var(--text-main);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      opacity: 0;
+      transform: translateY(18px);
+    }
+
+    .service-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(249, 115, 22, 0.65);
+      transform: translateY(-2px) scale(1.015);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4), 0 0 20px var(--accent-glow);
+    }
+
+    .service-btn.show { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+
+    .service-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-align: left;
+    }
+
+    .icon-box {
+      width: 44px;
+      height: 44px;
+      background: rgba(255, 255, 255, 0.09);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      transition: transform 0.3s;
+    }
+
+    .service-btn:hover .icon-box {
+      transform: scale(1.1) rotate(4deg);
+      background: rgba(249, 115, 22, 0.22);
+      border-color: rgba(249, 115, 22, 0.5);
+    }
+
+    .service-title {
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: #ffffff;
+      display: block;
+    }
+
+    .arrow-icon {
+      font-size: 1.15rem;
+      color: var(--text-sub);
+      transition: transform 0.2s, color 0.2s;
+    }
+
+    .service-btn:hover .arrow-icon {
+      color: var(--accent);
+      transform: translate(3px, -3px);
+    }
+
+    /* Creator Banner */
+    .creator-banner-large {
+      margin-top: 24px;
+      padding: 13px 18px;
+      background: linear-gradient(135deg, rgba(249, 115, 22, 0.16), rgba(2, 132, 199, 0.16));
+      border: 1.5px solid rgba(249, 115, 22, 0.45);
+      border-radius: 18px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      text-align: center;
+    }
+
+    .creator-tagline {
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: #cbd5e1;
+      text-transform: uppercase;
+      margin-bottom: 3px;
+      display: block;
+    }
+
+    .creator-name-bold {
+      font-size: 1.3rem;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      display: block;
+      background: linear-gradient(90deg, #ff9933 0%, #ffffff 50%, #10b981 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 20px rgba(249, 115, 22, 0.4);
+    }
+
+    /* 10-Second Strict Locked Modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(3, 7, 18, 0.94);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 999999;
+      transition: opacity 0.4s ease;
+      user-select: none;
+    }
+
+    .modal-box {
+      background: linear-gradient(160deg, rgba(20, 32, 54, 0.96), rgba(10, 18, 30, 0.98));
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-top: 1px solid rgba(249, 115, 22, 0.7);
+      width: 90%;
+      max-width: 350px;
+      padding: 34px 22px 28px;
+      border-radius: 28px;
+      text-align: center;
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.9), 0 0 35px rgba(249, 115, 22, 0.3);
+    }
+
+    .modal-box .welcome-tag {
+      font-size: 0.76rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-sub);
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    .modal-box .user-title {
+      font-size: 2.1rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+      background: linear-gradient(90deg, #ff9933 0%, #ffffff 50%, #138808 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .modal-box .loading-desc {
+      color: var(--text-sub);
+      font-size: 0.88rem;
+      margin-bottom: 20px;
+    }
+
+    .timer-container {
+      position: relative;
+      width: 92px;
+      height: 92px;
+      margin: 0 auto 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
     
-  /* स्टैगर्ड एनिमेशन के लिए डिफॉल्ट हाइड */  
-  opacity: 0;  
-  transform: translateY(35px) scale(0.95);  
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);  
-}  
+    .timer-container svg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transform: rotate(-90deg);
+    }
 
-/* बटन होवर इफ़ेक्ट */  
-.btn:hover {  
-  background: linear-gradient(135deg, rgba(255, 119, 0, 0.9), rgba(255, 85, 0, 0.85));  
-  border-color: #ffaa5a;  
-  transform: translateY(-3px) scale(1.02) !important;  
-  box-shadow: 0 10px 25px var(--accent-glow);  
-}  
+    .timer-container circle {
+      fill: none;
+      stroke-width: 6;
+      stroke-linecap: round;
+    }
 
-.btn .icon {  
-  font-size: 1.4rem;  
-  background: rgba(255, 255, 255, 0.15);  
-  width: 40px;  
-  height: 40px;  
-  display: flex;  
-  align-items: center;  
-  justify-content: center;  
-  border-radius: 10px;  
-  transition: transform 0.3s;  
-}  
+    .ring-bg { stroke: rgba(255, 255, 255, 0.12); }
+    .ring-progress {
+      stroke: var(--accent);
+      transition: stroke-dashoffset 0.9s linear;
+      filter: drop-shadow(0 0 8px var(--accent-glow));
+    }
 
-.btn:hover .icon {  
-  transform: scale(1.15) rotate(5deg);  
-  background: rgba(255, 255, 255, 0.25);  
-}  
+    .timer-val {
+      font-size: 2.1rem;
+      font-weight: 800;
+      color: #ffffff;
+    }
 
-/* --- पॉपअप हटने के बाद एक-एक करके आने वाला क्लास --- */  
-.btn.show {  
-  opacity: 1;  
-  transform: translateY(0) scale(1);  
-}  
+    /* ⏱️ Please wait 10 seconds */
+    .wait-text {
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: #fbd5b5;
+      letter-spacing: 0.5px;
+      margin-bottom: 18px;
+    }
 
-/* --- प्रीमियम लॉक्ड पॉपअप (MODAL) --- */  
-.modal-overlay {  
-  position: fixed;  
-  inset: 0;  
-  background: rgba(3, 7, 18, 0.78);  
-  backdrop-filter: blur(14px);  
-  -webkit-backdrop-filter: blur(14px);  
-  display: flex;  
-  justify-content: center;  
-  align-items: center;  
-  z-index: 99999;  
-  transition: opacity 0.5s ease, visibility 0.5s ease;  
-}  
+    .modal-credit {
+      display: inline-block;
+      padding: 7px 16px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 9999px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      color: #cbd5e1;
+      text-transform: uppercase;
+    }
+    .modal-credit span { color: var(--accent); }
+  </style>
+</head>
+<body>
 
-/* पॉपअप बॉक्स */  
-.modal-box {  
-  background: linear-gradient(145deg, rgba(20, 35, 60, 0.95), rgba(10, 18, 32, 0.98));  
-  border: 1px solid rgba(255, 150, 50, 0.35);  
-  width: 90%;  
-  max-width: 360px;  
-  padding: 35px 25px;  
-  border-radius: 28px;  
-  text-align: center;  
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7), 0 0 35px rgba(255, 119, 0, 0.2);  
-  animation: popBounce 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);  
-  position: relative;  
-}  
+  <!-- Ambient Glow -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
 
-@keyframes popBounce {  
-  from { transform: scale(0.7); opacity: 0; }  
-  to { transform: scale(1); opacity: 1; }  
-}  
+  <!-- 10 SECONDS STRICT LOCKED POPUP -->
+  <div id="welcomeModal" class="modal-overlay">
+    <div class="modal-box">
+      <div class="welcome-tag">INDIAN RAILWAYS</div>
+      <div class="user-title">WELCOME</div>
+      <p class="loading-desc">Loading Railway Portal...</p>
 
-.modal-box h2 {  
-  color: #94a3b8;  
-  font-size: 1.1rem;  
-  letter-spacing: 2px;  
-  text-transform: uppercase;  
-  margin-bottom: 5px;  
-}  
+      <div class="timer-container">
+        <svg viewBox="0 0 100 100">
+          <circle class="ring-bg" cx="50" cy="50" r="42"></circle>
+          <circle id="progressCircle" class="ring-progress" cx="50" cy="50" r="42"></circle>
+        </svg>
+        <span class="timer-val" id="timerCount">10</span>
+      </div>
 
-.modal-box .user-name {  
-  font-size: 1.8rem;  
-  font-weight: 800;  
-  color: #fff;  
-  background: linear-gradient(90deg, #ff9933, #ffffff, #138808);  
-  -webkit-background-clip: text;  
-  -webkit-text-fill-color: transparent;  
-  margin-bottom: 8px;  
-}  
+      <!-- Please wait 10 seconds -->
+      <div class="wait-text">Please wait 10 seconds...</div>
 
-.modal-box .msg {  
-  color: #cbd5e1;  
-  font-size: 0.92rem;  
-  margin-bottom: 22px;  
-}  
+      <div class="modal-credit">
+        Created by <span>Rajan Sahu</span>
+      </div>
+    </div>
+  </div>
 
-/* सर्कुलर प्रोग्रेस टाइमर */  
-.timer-wrapper {  
-  position: relative;  
-  width: 90px;  
-  height: 90px;  
-  margin: 0 auto 16px auto;  
-  display: flex;  
-  align-items: center;  
-  justify-content: center;  
-}  
+  <!-- MAIN DASHBOARD -->
+  <main class="app-card">
+    <div class="badge-container">
+      <span class="pulse-dot"></span>
+      <span class="badge-text">Indian Railways Services</span>
+    </div>
 
-.timer-wrapper svg {  
-  position: absolute;  
-  top: 0;  
-  left: 0;  
-  width: 100%;  
-  height: 100%;  
-  transform: rotate(-90deg);  
-}  
+    <h1>🚆 Indian Railways</h1>
+    <p class="subtitle">Quick Access to Railway Portals</p>
 
-.timer-wrapper circle {  
-  fill: none;  
-  stroke-width: 6;  
-  stroke-linecap: round;  
-}  
+    <!-- ⚡ 4 मुख्य ऑप्शंस -->
+    <nav class="services-group" aria-label="Railway Services">
+      <!-- 1. BOOK TICKET (IRCTC) -->
+      <a href="https://www.irctc.co.in/nget/train-search" target="_blank" rel="noopener noreferrer" class="service-btn">
+        <div class="service-left">
+          <div class="icon-box" aria-hidden="true">🎫</div>
+          <span class="service-title">Book Ticket</span>
+        </div>
+        <span class="arrow-icon" aria-hidden="true">↗</span>
+      </a>
 
-.timer-bg {  
-  stroke: rgba(255, 255, 255, 0.1);  
-}  
+      <!-- 2. PNR STATUS (ConfirmTkt) -->
+      <a href="https://www.confirmtkt.com/pnr-status" target="_blank" rel="noopener noreferrer" class="service-btn">
+        <div class="service-left">
+          <div class="icon-box" aria-hidden="true">🔍</div>
+          <span class="service-title">PNR Status</span>
+        </div>
+        <span class="arrow-icon" aria-hidden="true">↗</span>
+      </a>
 
-.timer-bar {  
-  stroke: var(--accent);  
-  stroke-dasharray: 251.2;  
-  stroke-dashoffset: 0;  
-  transition: stroke-dashoffset 1s linear;  
-  filter: drop-shadow(0 0 6px var(--accent));  
-}  
+      <!-- 3. SEARCH TRAIN (NTES) -->
+      <a href="https://enquiry.indianrail.gov.in/mntes/" target="_blank" rel="noopener noreferrer" class="service-btn">
+        <div class="service-left">
+          <div class="icon-box" aria-hidden="true">📍</div>
+          <span class="service-title">Search Train</span>
+        </div>
+        <span class="arrow-icon" aria-hidden="true">↗</span>
+      </a>
 
-.timer-number {  
-  font-size: 2rem;  
-  font-weight: 800;  
-  color: #ffffff;  
-}  
+      <!-- 4. TRAINS BETWEEN STATIONS (RailYatri) -->
+      <a href="https://www.railyatri.in/trains-between-stations" target="_blank" rel="noopener noreferrer" class="service-btn">
+        <div class="service-left">
+          <div class="icon-box" aria-hidden="true">🚆</div>
+          <span class="service-title">Trains Between Stations</span>
+        </div>
+        <span class="arrow-icon" aria-hidden="true">↗</span>
+      </a>
+    </nav>
 
-.wait-text {  
-  font-size: 0.85rem;  
-  color: #94a3b8;  
-}
+    <!-- LARGE CREATOR BANNER -->
+    <div class="creator-banner-large">
+      <span class="creator-tagline">Created by</span>
+      <span class="creator-name-bold">RAJAN SAHU</span>
+    </div>
+  </main>
 
-  </style>  
-</head>  
-<body>    <!-- 10 SECONDS LOCKED POPUP -->    <div id="welcomeModal" class="modal-overlay">  
-    <div class="modal-box">  
-      <h2>Welcome</h2>  
-      <div class="user-name">Rajan Sahu</div>  
-      <p class="msg">Railway Portal लोड हो रहा है...</p>  <!-- सर्कुलर टाइमर -->  
-  <div class="timer-wrapper">  
-    <svg viewBox="0 0 90 90">  
-      <circle class="timer-bg" cx="45" cy="45" r="38"></circle>  
-      <circle id="progressCircle" class="timer-bar" cx="45" cy="45" r="38"></circle>  
-    </svg>  
-    <span class="timer-number" id="timer">10</span>  
-  </div>  
-    
-  <p class="wait-text">कृपया 10 सेकंड प्रतीक्षा करें...</p>  
-</div>
+  <script>
+    // 10 SECONDS STRICT LOCKED TIMER
+    (function () {
+      let timeLeft = 10;
+      const timerDisplay = document.getElementById("timerCount");
+      const progressCircle = document.getElementById("progressCircle");
+      const modal = document.getElementById("welcomeModal");
+      const buttons = document.querySelectorAll(".service-btn");
+      let isUnlocked = false;
 
-  </div>    <!-- MAIN DASHBOARD -->    <div class="container">  
-    <span class="badge">Official Portal</span>  
-    <h1>🚆 Railway Services</h1>  
-    <p class="subtitle">Quick & Easy Indian Railway Services</p>  <div class="btn-group">  
-  <!-- 1. TICKET BOOK (IRCTC) -->  
-  <button class="btn" onclick="openIRCTC()">  
-    <span>Book Ticket</span>  
-    <span class="icon">🎫</span>  
-  </button>  
+      const totalCircumference = 263.89; // 2 * π * 42
+      if (progressCircle) {
+        progressCircle.style.strokeDasharray = totalCircumference;
+        progressCircle.style.strokeDashoffset = 0;
+      }
 
-  <!-- 2. LIVE TRACK (NTES) -->  
-  <button class="btn" onclick="openNTES()">  
-    <span>Live Train Tracking</span>  
-    <span class="icon">📍</span>  
-  </button>  
+      function revealButtons() {
+        buttons.forEach((btn, index) => {
+          setTimeout(() => btn.classList.add("show"), index * 100);
+        });
+      }
 
-  <!-- 3. PNR CHECK (ConfirmTkt) -->  
-  <button class="btn" onclick="openConfirmTkt()">  
-    <span>Check PNR Status</span>  
-    <span class="icon">🔍</span>  
-  </button>  
+      function forceUnlock() {
+        if (isUnlocked) return;
+        isUnlocked = true;
 
-  <!-- 4. TRAINS LIST (RailYatri) -->  
-  <button class="btn" onclick="openRailYatri()">  
-    <span>Trains Between Stations</span>  
-    <span class="icon">🚆</span>  
-  </button>  
-</div>
+        if (modal) {
+          modal.style.opacity = "0";
+          modal.style.pointerEvents = "none";
+          setTimeout(() => {
+            modal.remove();
+            revealButtons();
+          }, 350);
+        } else {
+          revealButtons();
+        }
+      }
 
-  </div>    <script>  
-    // --- 10 SECONDS STRICT TIMER WITH PROGRESS RING ---  
-    const totalTime = 10;  
-    let timeLeft = totalTime;  
-    const timerDisplay = document.getElementById("timer");  
-    const modal = document.getElementById("welcomeModal");  
-    const progressCircle = document.getElementById("progressCircle");  
-    const buttons = document.querySelectorAll(".btn");  
-  
-    // Circumference of r=38 circle: 2 * PI * 38 ≈ 238.76  
-    const circumference = 2 * Math.PI * 38;  
-    progressCircle.style.strokeDasharray = circumference;  
-  
-    const countdown = setInterval(() => {  
-      timeLeft--;  
-      if (timerDisplay) {  
-        timerDisplay.textContent = timeLeft;  
-      }  
-  
-      // सर्कुलर प्रोग्रेस बार अपडेट  
-      const offset = circumference - (timeLeft / totalTime) * circumference;  
-      progressCircle.style.strokeDashoffset = offset;  
-        
-      // टाइमर खत्म होने पर  
-      if (timeLeft <= 0) {  
-        clearInterval(countdown);  
-          
-        // पॉपअप को स्मूथली ज़ूम-आउट करके फेड करना  
-        modal.style.opacity = "0";  
-        modal.style.transform = "scale(1.05)";  
-          
-        setTimeout(() => {  
-          modal.style.display = "none";  
-          // पॉपअप हटने के बाद बटन एक-एक करके (Cascade) आएंगे  
-          animateButtonsOneByOne();  
-        }, 500);  
-      }  
-    }, 1000);  
-  
-    // --- एक-एक करके बटन्स दिखाने का फंक्शन ---  
-    function animateButtonsOneByOne() {  
-      buttons.forEach((btn, index) => {  
-        setTimeout(() => {  
-          btn.classList.add("show");  
-        }, index * 160); // हर 160ms के अंतर पर एक बटन स्लाइड होकर आएगा  
-      });  
-    }  
-  
-    // --- BUTTON LINKS ---  
-    function openIRCTC() {  
-      window.open("https://www.irctc.co.in/nget/train-search", "_blank", "noopener,noreferrer");  
-    }  
-  
-    function openNTES() {  
-      window.open("https://enquiry.indianrail.gov.in/mntes/", "_blank", "noopener,noreferrer");  
-    }  
-  
-    function openConfirmTkt() {  
-      window.open("https://www.confirmtkt.com/pnr-status", "_blank", "noopener,noreferrer");  
-    }  
-  
-    function openRailYatri() {  
-      window.open("https://www.railyatri.in/trains-between-stations", "_blank", "noopener,noreferrer");  
-    }  
-  </script>  </body>  
+      const interval = setInterval(() => {
+        timeLeft--;
+        if (timerDisplay) {
+          timerDisplay.innerText = timeLeft > 0 ? timeLeft : 0;
+        }
+
+        if (progressCircle) {
+          const offset = totalCircumference - (timeLeft / 10) * totalCircumference;
+          progressCircle.style.strokeDashoffset = offset;
+        }
+
+        if (timeLeft <= 0) {
+          clearInterval(interval);
+          forceUnlock();
+        }
+      }, 1000);
+    })();
+  </script>
+</body>
 </html>
