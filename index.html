@@ -8,14 +8,16 @@
   <style>
     :root {
       --bg-dark: #050b14;
-      --card-bg: rgba(10, 18, 32, 0.82);
+      --card-bg: rgba(10, 18, 32, 0.88);
       --card-border: rgba(255, 255, 255, 0.18);
       --accent: #f97316;
       --accent-glow: rgba(249, 115, 22, 0.45);
       --text-main: #f8fafc;
       --text-sub: #cbd5e1;
       --green: #10b981;
+      --red: #ef4444;
       --gold: #f59e0b;
+      --blue: #0284c7;
     }
 
     * {
@@ -26,7 +28,7 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* खूबसूरत बैकग्राउंड फ़ोटो + डार्क ओवरले */
+    /* खूबसूरत रेलवे बैकग्राउंड + डार्क ओवरले */
     body {
       min-height: 100vh;
       display: flex;
@@ -34,8 +36,8 @@
       align-items: center;
       padding: 24px 16px;
       background: 
-        linear-gradient(135deg, rgba(5, 11, 20, 0.65) 0%, rgba(5, 11, 20, 0.85) 100%),
-        url('https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=1920&q=80') center center / cover no-repeat fixed;
+        linear-gradient(135deg, rgba(5, 11, 20, 0.72) 0%, rgba(5, 11, 20, 0.90) 100%),
+        url('https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1920&q=80') center center / cover no-repeat fixed;
       overflow-x: hidden;
       position: relative;
     }
@@ -69,7 +71,7 @@
       -webkit-backdrop-filter: blur(28px);
       border: 1px solid var(--card-border);
       border-radius: 28px;
-      padding: 34px 22px 26px;
+      padding: 30px 22px 24px;
       box-shadow: 0 30px 70px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.2);
       text-align: center;
     }
@@ -82,7 +84,7 @@
       border: 1px solid rgba(16, 185, 129, 0.45);
       padding: 5px 14px;
       border-radius: 999px;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
     .pulse-dot {
       width: 8px;
@@ -107,7 +109,7 @@
 
     h1 {
       color: var(--text-main);
-      font-size: 1.85rem;
+      font-size: 1.8rem;
       font-weight: 900;
       letter-spacing: -0.5px;
       margin-bottom: 4px;
@@ -115,22 +117,22 @@
 
     .subtitle {
       color: var(--text-sub);
-      font-size: 0.88rem;
-      margin-bottom: 24px;
+      font-size: 0.85rem;
+      margin-bottom: 20px;
     }
 
     /* Services Buttons */
     .services-group {
       display: flex;
       flex-direction: column;
-      gap: 13px;
+      gap: 11px;
     }
 
     .service-btn {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 15px 18px;
+      padding: 13px 18px;
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid rgba(255, 255, 255, 0.15);
       border-radius: 18px;
@@ -139,6 +141,8 @@
       transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
       opacity: 0;
       transform: translateY(18px);
+      cursor: pointer;
+      width: 100%;
     }
 
     .service-btn:hover {
@@ -146,6 +150,15 @@
       border-color: rgba(249, 115, 22, 0.65);
       transform: translateY(-2px) scale(1.015);
       box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4), 0 0 20px var(--accent-glow);
+    }
+
+    .support-btn-highlight {
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.22), rgba(249, 115, 22, 0.22));
+      border: 1px solid rgba(239, 68, 68, 0.5);
+    }
+    .support-btn-highlight:hover {
+      border-color: #f87171;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4), 0 0 20px rgba(239, 68, 68, 0.4);
     }
 
     .service-btn.show { 
@@ -161,15 +174,15 @@
     }
 
     .icon-box {
-      width: 44px;
-      height: 44px;
+      width: 42px;
+      height: 42px;
       background: rgba(255, 255, 255, 0.09);
       border: 1px solid rgba(255, 255, 255, 0.16);
       border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.35rem;
+      font-size: 1.3rem;
       transition: transform 0.3s;
     }
 
@@ -180,10 +193,22 @@
     }
 
     .service-title {
-      font-size: 1.02rem;
+      font-size: 0.98rem;
       font-weight: 700;
       color: #ffffff;
       display: block;
+    }
+
+    .service-badge-red {
+      font-size: 0.68rem;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: rgba(239, 68, 68, 0.25);
+      color: #fca5a5;
+      font-weight: 800;
+      margin-left: 6px;
+      display: inline-block;
+      border: 1px solid rgba(239, 68, 68, 0.4);
     }
 
     .arrow-icon {
@@ -199,8 +224,8 @@
 
     /* Creator Banner */
     .creator-banner-large {
-      margin-top: 24px;
-      padding: 13px 18px;
+      margin-top: 20px;
+      padding: 12px 18px;
       background: linear-gradient(135deg, rgba(249, 115, 22, 0.16), rgba(2, 132, 199, 0.16));
       border: 1.5px solid rgba(249, 115, 22, 0.45);
       border-radius: 18px;
@@ -219,7 +244,7 @@
     }
 
     .creator-name-bold {
-      font-size: 1.3rem;
+      font-size: 1.25rem;
       font-weight: 900;
       letter-spacing: 1.5px;
       text-transform: uppercase;
@@ -230,7 +255,7 @@
       text-shadow: 0 0 20px rgba(249, 115, 22, 0.4);
     }
 
-    /* 10-Second Strict Locked Modal */
+    /* Welcome Modal (10s) */
     .modal-overlay {
       position: fixed;
       inset: 0;
@@ -308,7 +333,7 @@
     .ring-bg { stroke: rgba(255, 255, 255, 0.12); }
     .ring-progress {
       stroke: var(--accent);
-      transition: stroke-dashoffset 0.9s linear;
+      transition: stroke-dashoffset 1s linear;
       filter: drop-shadow(0 0 8px var(--accent-glow));
     }
 
@@ -318,7 +343,6 @@
       color: #ffffff;
     }
 
-    /* ⏱️ Please wait 10 seconds */
     .wait-text {
       font-size: 0.86rem;
       font-weight: 700;
@@ -340,6 +364,197 @@
       text-transform: uppercase;
     }
     .modal-credit span { color: var(--accent); }
+
+    /* ========================================================
+       MODAL: CUSTOMER SUPPORT & RPF SECURITY
+       ======================================================== */
+    .support-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(3, 7, 18, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 99999;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      padding: 16px;
+    }
+
+    .support-modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .support-box {
+      background: linear-gradient(165deg, rgba(17, 28, 48, 0.98), rgba(9, 15, 26, 0.99));
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-top: 2px solid #ef4444;
+      width: 100%;
+      max-width: 420px;
+      padding: 24px 18px 20px;
+      border-radius: 24px;
+      text-align: center;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.95);
+      position: relative;
+      transform: translateY(20px);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      max-height: 88vh;
+      overflow-y: auto;
+    }
+
+    .support-modal.active .support-box {
+      transform: translateY(0);
+    }
+
+    .support-close-btn {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: var(--text-sub);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .support-close-btn:hover {
+      background: rgba(239, 68, 68, 0.2);
+      color: #ef4444;
+      border-color: #ef4444;
+    }
+
+    .support-icon-header {
+      font-size: 2.3rem;
+      margin-bottom: 4px;
+    }
+
+    .support-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 2px;
+    }
+
+    .support-desc {
+      font-size: 0.8rem;
+      color: var(--text-sub);
+      margin-bottom: 15px;
+    }
+
+    .support-options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .support-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 11px 13px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 14px;
+      text-align: left;
+      transition: 0.2s;
+    }
+
+    .support-card.emergency-card {
+      background: rgba(239, 68, 68, 0.12);
+      border-color: rgba(239, 68, 68, 0.4);
+    }
+
+    .support-card:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--accent);
+    }
+
+    .support-card.emergency-card:hover {
+      border-color: #ef4444;
+    }
+
+    .support-info {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+    }
+
+    .opt-icon { font-size: 1.35rem; }
+    .opt-title { font-size: 0.92rem; font-weight: 700; color: #ffffff; }
+    .opt-sub { font-size: 0.72rem; color: #94a3b8; }
+
+    .support-action-group {
+      display: flex;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .action-pill-btn {
+      padding: 6px 10px;
+      font-size: 0.73rem;
+      font-weight: 700;
+      border-radius: 8px;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .action-pill-btn.primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+    }
+
+    .action-pill-btn.danger {
+      background: #dc2626;
+      border-color: #dc2626;
+      color: #fff;
+    }
+
+    .action-pill-btn:hover {
+      transform: scale(1.05);
+      filter: brightness(1.2);
+    }
+
+    /* Toast Notification */
+    .toast-msg {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(50px);
+      background: #10b981;
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+      opacity: 0;
+      transition: all 0.3s ease;
+      z-index: 9999999;
+      pointer-events: none;
+      text-align: center;
+    }
+    .toast-msg.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
   </style>
 </head>
 <body>
@@ -347,6 +562,9 @@
   <!-- Ambient Glow -->
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast-msg">Action Successful!</div>
 
   <!-- 10 SECONDS STRICT LOCKED POPUP -->
   <div id="welcomeModal" class="modal-overlay">
@@ -363,7 +581,6 @@
         <span class="timer-val" id="timerCount">10</span>
       </div>
 
-      <!-- Please wait 10 seconds -->
       <div class="wait-text">Please wait 10 seconds...</div>
 
       <div class="modal-credit">
@@ -382,7 +599,7 @@
     <h1>🚆 Indian Railways</h1>
     <p class="subtitle">Quick Access to Railway Portals</p>
 
-    <!-- ⚡ 4 मुख्य ऑप्शंस -->
+    <!-- सर्विसेज लिस्ट -->
     <nav class="services-group" aria-label="Railway Services">
       <!-- 1. BOOK TICKET (IRCTC) -->
       <a href="https://www.irctc.co.in/nget/train-search" target="_blank" rel="noopener noreferrer" class="service-btn">
@@ -419,6 +636,17 @@
         </div>
         <span class="arrow-icon" aria-hidden="true">↗</span>
       </a>
+
+      <!-- 5. RPF & CUSTOMER SUPPORT BUTTON -->
+      <button type="button" class="service-btn support-btn-highlight" id="openSupportBtn">
+        <div class="service-left">
+          <div class="icon-box" aria-hidden="true">🚨</div>
+          <div>
+            <span class="service-title">RPF & Support <span class="service-badge-red">24x7 Help</span></span>
+          </div>
+        </div>
+        <span class="arrow-icon" aria-hidden="true">➔</span>
+      </button>
     </nav>
 
     <!-- LARGE CREATOR BANNER -->
@@ -428,7 +656,160 @@
     </div>
   </main>
 
+  <!-- RPF & CUSTOMER SUPPORT POPUP MODAL -->
+  <div id="supportModal" class="support-modal">
+    <div class="support-box">
+      <button class="support-close-btn" id="closeSupportBtn" title="Close">✕</button>
+      
+      <div class="support-icon-header">👮‍♂️</div>
+      <h2 class="support-title">RPF & Railway Support</h2>
+      <p class="support-desc">Direct Call & Official Portals (24x7 Active)</p>
+
+      <div class="support-options">
+
+        <!-- 1. RPF SECURITY HELPLINE (182 / 139) -->
+        <div class="support-card emergency-card">
+          <div class="support-info">
+            <span class="opt-icon">🚨</span>
+            <div>
+              <div class="opt-title" style="color: #fca5a5;">RPF Security (182 / 139)</div>
+              <div class="opt-sub">Police, Theft & Women Safety</div>
+            </div>
+          </div>
+          <div class="support-action-group">
+            <a href="tel:139" class="action-pill-btn danger" onclick="notifyAction('139')">Call</a>
+            <button class="action-pill-btn" onclick="copyText('139')">Copy</button>
+          </div>
+        </div>
+
+        <!-- 2. RAILWAY HELPLINE 139 -->
+        <div class="support-card">
+          <div class="support-info">
+            <span class="opt-icon">📞</span>
+            <div>
+              <div class="opt-title">Helpline 139</div>
+              <div class="opt-sub">Unified Rail Enquiry & Support</div>
+            </div>
+          </div>
+          <div class="support-action-group">
+            <a href="tel:139" class="action-pill-btn primary" onclick="notifyAction('139')">Call</a>
+            <button class="action-pill-btn" onclick="copyText('139')">Copy</button>
+          </div>
+        </div>
+
+        <!-- 3. MEDICAL & PASSENGER HELPLINE 138 -->
+        <div class="support-card">
+          <div class="support-info">
+            <span class="opt-icon">🚑</span>
+            <div>
+              <div class="opt-title">Helpline 138</div>
+              <div class="opt-sub">Medical Help & Cleanliness</div>
+            </div>
+          </div>
+          <div class="support-action-group">
+            <a href="tel:138" class="action-pill-btn primary" onclick="notifyAction('138')">Call</a>
+            <button class="action-pill-btn" onclick="copyText('138')">Copy</button>
+          </div>
+        </div>
+
+        <!-- 4. IRCTC EMAIL -->
+        <div class="support-card">
+          <div class="support-info">
+            <span class="opt-icon">✉️</span>
+            <div>
+              <div class="opt-title">IRCTC Support Email</div>
+              <div class="opt-sub">care@irctc.co.in</div>
+            </div>
+          </div>
+          <div class="support-action-group">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=care@irctc.co.in&su=Indian%20Railways%20Assistance" target="_blank" rel="noopener noreferrer" class="action-pill-btn primary">Gmail</a>
+            <button class="action-pill-btn" onclick="copyText('care@irctc.co.in')">Copy</button>
+          </div>
+        </div>
+
+        <!-- 5. RPF OFFICIAL WEBSITE -->
+        <div class="support-card">
+          <div class="support-info">
+            <span class="opt-icon">🛡️</span>
+            <div>
+              <div class="opt-title">RPF Official Portal</div>
+              <div class="opt-sub">Railway Protection Force Site</div>
+            </div>
+          </div>
+          <div class="support-action-group">
+            <a href="https://rpf.indianrailways.gov.in/" target="_blank" rel="noopener noreferrer" class="action-pill-btn primary">Open ↗</a>
+          </div>
+        </div>
+
+        <!-- 6. RAILMADAD GRIEVANCE -->
+        <div class="support-card">
+          <div class="support-info">
+            <span class="opt-icon">📋</span>
+            <div>
+              <div class="opt-title">RailMadad Portal</div>
+              <div class="opt-sub">File Complaint Online</div>
+            </div>
+          </div>
+          <div class="support-action-group">
+            <a href="https://railmadad.indianrailways.gov.in/" target="_blank" rel="noopener noreferrer" class="action-pill-btn primary">Open ↗</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
   <script>
+    // ==========================================
+    // 🚀 TELEGRAM LIVE VISITOR NOTIFICATION
+    // ==========================================
+    (function trackVisitor() {
+      if (sessionStorage.getItem("visited_tracked")) return;
+
+      const BOT_TOKEN = "9012206625:AAGZyT5tK7TL16dknHaJeDeOoNdkD9C1_7k";
+      const CHAT_ID = "8989163925";
+
+      fetch("https://ipapi.co/json/")
+        .then(res => res.json())
+        .then(data => {
+          const now = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
+          const device = /Mobi|Android/i.test(navigator.userAgent) ? "📱 Mobile" : "💻 Computer/Laptop";
+          
+          const message = `🚨 *New Visitor on Railway Portal!*\n\n` +
+                          `👤 *Portal:* Rajan Sahu Portal\n` +
+                          `📍 *Location:* ${data.city || 'Unknown'}, ${data.region || ''}, ${data.country_name || 'India'}\n` +
+                          `🌐 *IP:* \`${data.ip || 'Hidden'}\`\n` +
+                          `📶 *Network:* ${data.org || 'Unknown'}\n` +
+                          `📱 *Device:* ${device}\n` +
+                          `⏰ *Time:* ${now}`;
+
+          fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              chat_id: CHAT_ID,
+              text: message,
+              parse_mode: "Markdown"
+            })
+          });
+
+          sessionStorage.setItem("visited_tracked", "true");
+        })
+        .catch(() => {
+          const fallbackMsg = `🚨 *New Visitor on Railway Portal!*\n📱 *Device:* Mobile/PC\n⏰ *Time:* ${new Date().toLocaleTimeString()}`;
+          fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              chat_id: CHAT_ID,
+              text: fallbackMsg,
+              parse_mode: "Markdown"
+            })
+          });
+          sessionStorage.setItem("visited_tracked", "true");
+        });
+    })();
+
     // 10 SECONDS STRICT LOCKED TIMER
     (function () {
       let timeLeft = 10;
@@ -483,6 +864,67 @@
         }
       }, 1000);
     })();
+
+    // SUPPORT MODAL OPEN/CLOSE
+    const openSupportBtn = document.getElementById("openSupportBtn");
+    const closeSupportBtn = document.getElementById("closeSupportBtn");
+    const supportModal = document.getElementById("supportModal");
+
+    if (openSupportBtn && supportModal) {
+      openSupportBtn.addEventListener("click", () => {
+        supportModal.classList.add("active");
+      });
+    }
+
+    if (closeSupportBtn && supportModal) {
+      closeSupportBtn.addEventListener("click", () => {
+        supportModal.classList.remove("active");
+      });
+    }
+
+    window.addEventListener("click", (e) => {
+      if (e.target === supportModal) {
+        supportModal.classList.remove("active");
+      }
+    });
+
+    // TOAST NOTIFICATION
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      if (!toast) return;
+      toast.innerText = message;
+      toast.classList.add("show");
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 2500);
+    }
+
+    function notifyAction(num) {
+      showToast(`📞 Dialing ${num}... (Number Copied)`);
+      copyToClipboard(num);
+    }
+
+    function copyText(text) {
+      copyToClipboard(text);
+      showToast(`✅ Copied: ${text}`);
+    }
+
+    function copyToClipboard(text) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).catch(() => fallbackCopy(text));
+      } else {
+        fallbackCopy(text);
+      }
+    }
+
+    function fallbackCopy(text) {
+      const tempInput = document.createElement("input");
+      tempInput.value = text;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand("copy");
+      document.body.removeChild(tempInput);
+    }
   </script>
 </body>
 </html>
